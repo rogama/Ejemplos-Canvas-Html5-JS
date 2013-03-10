@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Grosor de lineas y Transparencias en los objetos</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+		<!--Le damos estilo al canvas con un borde, para que sea visible-->
+	}
+</style>
+</head>
+<body>
+	<canvas id="miCanvas">
+		<!-- mostramos un mensaje de error si no es aceptado -->
+		Tu navegador no soporta Canvas; por favort actualizalo
+	</canvas>
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		function init(){
+			var canvas = document.getElementById("miCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			//Este rectangulo lo imprimira negro al no haberle dado todavia un color
+			ctx.fillRect(80,20,50,50);
+			//Le doy el color rojo al contexto, para que imprima de aqui en adelante en rojo
+			ctx.fillStyle = "red";
+			
+			//El valor GLOBAL de transparencia
+			ctx.globalAlpha = 0.8;
+			
+			//Dibujo de un rectangulo en las coordenadas 20,20
+			//con 50 de ancho y de alto
+			ctx.fillRect(20,20,50,50);
+				
+			//Le damos 5px de grosor
+			ctx.lineWidth = 5;
+			//Le doy mediante RGB el color del borde
+			ctx.strokeStyle = "rgb (0,0,250)";
+			//Imprimo un Rectangulo con solo borde
+			ctx.strokeRect(20,80,50,50);
+			
+			ctx.fillStyle = "rgba(250,0,0,0.2)";//Mediante el RGBA le podemos da una transparencia distinta a la global
+			ctx.fillRect(80,80,50,50);
+			
+		}
+	</script>
+</body>
+</html>

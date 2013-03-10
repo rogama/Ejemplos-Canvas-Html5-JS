@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Grosor de lineas y Transparencias en los objetos</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+		<!--Le damos estilo al canvas con un borde, para que sea visible-->
+	}
+</style>
+</head>
+<body>
+	<canvas id="miCanvas">
+		<!-- mostramos un mensaje de error si no es aceptado -->
+		Tu navegador no soporta Canvas; por favort actualizalo
+	</canvas>
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		
+		function init(){
+			var canvas = document.getElementById("miCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			var x =10 , y =10, ancho = 20, alto = 50;
+			
+			ctx.fillRect(x,y,ancho, alto);//Dibuja un rectangulo con relleno
+			ctx.strokeRect(x+20,y+20,ancho, alto);//Dubuja un rectangulo Solo con borde
+			ctx.clearRect(x,y,ancho, alto-30);//Dibuja un rectangulo transparente (devuelve al color de orijen al area dada)
+			
+			setTimeout(function (){ctx.clearRect(0,0,canvas.width, canvas.height)},5000);//arranco la funcion de borrar todo el canvas a los 5 segundos
+			
+
+		}
+
+	</script>
+</body>
+</html>

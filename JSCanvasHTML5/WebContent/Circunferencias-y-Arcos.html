@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Grosor de lineas y Transparencias en los objetos</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+		<!--Le damos estilo al canvas con un borde, para que sea visible-->
+	}
+</style>
+</head>
+<body>
+	<canvas id="miCanvas">
+		<!-- mostramos un mensaje de error si no es aceptado -->
+		Tu navegador no soporta Canvas; por favort actualizalo
+	</canvas>
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		
+		function init(){
+			var canvas = document.getElementById("miCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			var x =10 , y =10, radio =10, anguloInicial = 0, anguloFinal = 360;
+			var sentidoRelog = true;
+			
+			ctx.arc(x,y+20,radio,a_radianes(anguloInicial),a_radianes(anguloFinal), sentidoRelog);
+			ctx.fill();//Dibujamos el circulo con relleno
+			
+			ctx.arc(x,y,radio,a_radianes(anguloInicial),a_radianes(anguloFinal), sentidoRelog);//Dibujamos una circunfrencia
+			ctx.stroke()//Solo la circunferencia
+			
+			ctx.arc(x+20,y,radio,a_radianes(anguloInicial),a_radianes(anguloFinal-180), sentidoRelog);
+			ctx.stroke()
+			
+			ctx.arc(x+40,y,radio,a_radianes(anguloInicial+90),a_radianes(anguloFinal-180), sentidoRelog);
+			ctx.stroke()
+			
+			sentidoRelog = false;
+			ctx.arc(x +60,y,radio,a_radianes(anguloInicial),a_radianes(anguloFinal-180), sentidoRelog);
+			ctx.stroke()
+
+		}
+		
+		function a_radianes(grados){
+			return (grados * Math.PI)/180
+			
+		}
+
+	</script>
+</body>
+</html>
