@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Grosor de lineas y Transparencias en los objetos</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+		<!--Le damos estilo al canvas con un borde, para que sea visible-->
+	}
+</style>
+</head>
+<body>
+	<canvas id="miCanvas">
+		<!-- mostramos un mensaje de error si no es aceptado -->
+		Tu navegador no soporta Canvas; por favort actualizalo
+	</canvas>
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		
+		function init(){
+			var canvas = document.getElementById("miCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			ctx.beginPath();
+			
+			ctx.arc(50,50,10,a_radianes(0),a_radianes(360),true);
+			ctx.moveTo(50,80);//Movemos el contexto para que no dibuje la linea de un elemento a otro
+			
+			ctx.arc(50,50,30,a_radianes(90),a_radianes(180),true);
+			ctx.moveTo(160,50);
+			
+			ctx.arc(150,50,10,a_radianes(0),a_radianes(360),true);
+			ctx.moveTo(150,80);
+			
+			ctx.arc(150,50,30,a_radianes(90),a_radianes(360),false);
+
+			ctx.stroke();// con esto lo dibujamos
+			
+			ctx.beginPath();//Creamos un nuevo Path, con esto eliminamos la informacion de "en donde esta el cursor al pintar y nos dibuja lo que le digamos"
+			//Funciona como una capa nueva
+			ctx.arc(100,110,30,a_radianes(0),a_radianes(180),false);
+			ctx.stroke();
+		}
+		
+		function a_radianes(grados){
+			return (grados * Math.PI)/180
+			
+		}
+
+	</script>
+</body>
+</html>
