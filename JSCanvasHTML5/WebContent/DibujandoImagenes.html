@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dibujando Imagenes</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+	}
+</style>
+</head>
+<body>
+	<canvas id="miCanvas">
+		<!-- mostramos un mensaje de error si no es aceptado -->
+		Tu navegador no soporta Canvas; por favort actualizalo
+	</canvas>
+	<img alt="" src="Opciones.jpg" id="img" style="display: none;">
+	
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		
+		function init(){
+			var canvas = document.getElementById("miCanvas");
+			var ctx = canvas.getContext("2d");
+			
+			var img = document.getElementById("img");//recogemos el elemento del id que nombremos
+			ctx.drawImage(img,0,0,100,200);//dibujamos la imagen en las coordenadas 0,0 y con un tamaño de 100x200
+		}
+	</script>
+</body>
+</html>

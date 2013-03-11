@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Objetos JSON</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+	}
+</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var persona = {
+				nombre:"Roberto",
+				edad:"25",
+				correo:"info@poque.es"
+		}//Declaracion del Objeto JSON
+
+		window.addEventListener ("load",init);
+		alert("Abre la consola");
+		
+		function init(){
+			console.log("Mi nombre: " + persona["nombre"]);
+			console.log("Mi email: " + persona["correo"]);
+		}
+	</script>
+</body>
+</html>

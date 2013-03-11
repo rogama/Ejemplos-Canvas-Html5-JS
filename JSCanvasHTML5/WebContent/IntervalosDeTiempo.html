@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejemplo de intervalos y funciones de tiempo</title>
+<style type="text/css">
+	canvas{
+		border: solid;
+	}
+</style>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		window.addEventListener("load",init);
+		
+		function init(){
+			var intervalo = window.setInterval(function(){console.log("Intervalo");},1000);//creamos un intervalo, hay que mete el valor en milisegundos, es decir 1000 por cada segundo
+																						   //esto se repite cada vez que pasa el intervalo, en este caso cada segundo
+																						   
+			setTimeout(function(){window.clearInterval(intervalo);},10000);//arrancamos una funcion a los 10 segundos
+																			//dicha funcion para el intervalo anterior
+
+			setTimeout(function(){alert("Abre la consola para ver los intervalos");},2000);
+			
+		}
+	</script>
+</body>
+</html>
